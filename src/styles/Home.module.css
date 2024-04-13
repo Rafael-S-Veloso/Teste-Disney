@@ -8,4 +8,7 @@
 .box {
  display: flex;
  flex-direction: column;
+ margin-left: 170px;
+ position: relative;
+ top: 80px;
 }
