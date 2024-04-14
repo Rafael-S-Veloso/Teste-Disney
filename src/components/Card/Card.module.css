@@ -1,6 +1,4 @@
-.container {
-    background-color: #fff;
-}
+.container {}
 
 .boxImg {
     width: 100%;
@@ -14,4 +12,11 @@
     overflow: hidden;
     width: 190px;
     height: 190px;
+}
+
+.boxImg h4 {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+
 }
