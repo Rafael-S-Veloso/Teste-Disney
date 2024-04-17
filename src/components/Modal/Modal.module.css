@@ -9,6 +9,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+
 }
 
 .modalContent {
@@ -16,7 +18,7 @@
     padding: 20px;
     border-radius: 8px;
     width: 677px;
-    height: 436px;
+    height: auto;
     border-radius: 50px;
 }
 
@@ -44,12 +46,20 @@
     overflow: hidden;
     width: 190px;
     height: 190px;
+    border: 2px solid #fff;
+}
+
+.boxImg h4 {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+
 }
 
 .title {
     display: flex;
     gap: 50px;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .title p:nth-child(1) {
@@ -72,6 +82,15 @@
     border-top: none;
     border-left: none;
     padding: 0 20px;
+    width: 180px;
+}
+
+.title {
+    margin-bottom: 10px;
+}
+
+.game {
+    width: 180px;
 }
 
 .show {
@@ -80,4 +99,19 @@
     border-top: none;
     border-right: none;
     padding: 0 20px;
+}
+
+.saibaMais {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: -38px;
+    width: 100%;
+}
+
+.saibaMais a {
+    text-decoration: underline;
+    color: #346BAC;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Modal.module.css";
 
 const Modal = (props) => {
@@ -9,23 +10,29 @@ const Modal = (props) => {
         </button>
         <div className={styles.container}>
           <div className={styles.boxImg}>
-            <img src={"/fundo2.png"} width={190} height={190} />
+            <img src={props.img} width={190} height={190} />
+            <h4>{props.name} </h4>
           </div>
           <div className={styles.title}>
             <div className={styles.filme}>
-              <p>FILMES</p>
-              <p>Hercules (film)</p>
+              <p className={styles.title}>FILMES</p>
+              <p>{props.film || "Sem dados"}</p>
               <div />
             </div>
-            <div>
-              <p>VIDEO GAME</p>
-              <p>Kingdom Hearts III</p>
+            <div className={styles.game}>
+              <p className={styles.title}>VIDEO GAME</p>
+              <p>{props.game || "Sem dados"}</p>
             </div>
             <div className={styles.show}>
-              <p>SHOW DE TV</p>
-              <p>Hercules (TV series)</p>
+              <p className={styles.title}>SHOW DE TV</p>
+              <p>{props.show || "Sem dados"}</p>
             </div>
           </div>
+        </div>
+        <div className={styles.saibaMais}>
+          <Link href={`${props.link}`} passHref>
+            Saiba Mais
+          </Link>
         </div>
       </div>
     </div>

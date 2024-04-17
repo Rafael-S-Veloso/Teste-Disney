@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.img {
+    border-radius: 50%;
+    background-color: #fff;
+    width: 308px;
+    height: 308px;
+    display: flex;
+    justify-content: center
+}
+
+.img img {
+    position: relative;
+    top: 30px;
+}
+
+.text {
+    margin-top: 100px;
+    margin-left: -50px;
+}
+
+.text p {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}

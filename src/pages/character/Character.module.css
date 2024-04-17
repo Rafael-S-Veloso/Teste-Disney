@@ -22,3 +22,9 @@
     margin: 180px 0 10px;
     background-color: #000b38;
 }
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
