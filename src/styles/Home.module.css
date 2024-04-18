@@ -5,10 +5,43 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+@media screen and (max-width: 1280px) {
+    .container {
+        background-image: url('/back2.png');
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .container {
+        display: flex;
+        justify-content: center;
+        background-position-x: right;
+    }
+}
+
+
 .box {
- display: flex;
- flex-direction: column;
- margin-left: 170px;
- position: relative;
- top: 80px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 170px;
+    position: relative;
+    top: 80px;
+}
+
+@media screen and (max-width: 475px) {
+    .box {
+        align-items: center;
+        top: 30px;
+        margin-left: 0;
+        position: inherit;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .box img {
+        width: 199px;
+        height: 148px;
+    }
 }

@@ -2,12 +2,28 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import Input from "@/components/Input/Input";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 export default function Home() {
   const [search, setSearch] = useState("");
   const router = useRouter();
+
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleSearch = () => {
     if (search.trim() !== "") {
@@ -20,6 +36,7 @@ export default function Home() {
       handleSearch();
     }
   };
+  const image = windowWidth < 475 ? "/logo-mobile.png" : "/logo-home.png";
 
   return (
     <>
@@ -32,7 +49,7 @@ export default function Home() {
 
       <div className={styles.container}>
         <div className={styles.box}>
-          <Image src={"/logo-home.png"} width={364} height={271} alt="logo" />
+          <Image src={`${image}`} width={364} height={271} alt="logo" />
           <Input
             placeholder="Pesquisar"
             value={search}

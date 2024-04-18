@@ -16,6 +16,13 @@
     height: 190px;
 }
 
+@media screen and (max-width: 475px) {
+    .boxImg img {
+        width: 117px;
+        height: 117px;
+    }
+}
+
 .boxImg h4 {
     color: #fff;
     font-size: 16px;

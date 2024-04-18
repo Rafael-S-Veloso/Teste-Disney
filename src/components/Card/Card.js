@@ -4,7 +4,7 @@ function Card(props) {
   return (
     <div className={styles.container}>
       <div className={styles.boxImg}>
-        <img src={props.img} width={190} height={190} />
+        <img src={props.img} width={190} height={190} alt="personagem" />
         <div>
           <h4>{props.nome}</h4>
         </div>

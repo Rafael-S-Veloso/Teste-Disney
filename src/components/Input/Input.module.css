@@ -24,3 +24,15 @@
     opacity: 0px;
     padding: 8px 16px;
 }
+
+@media screen and (max-width: 475px) {
+    .input {
+        width: 308px;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .input input {
+        width: 100%;
+    }
+}

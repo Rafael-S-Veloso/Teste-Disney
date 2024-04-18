@@ -11,13 +11,27 @@ import Error from "../../../public/imagem-erro.jpg";
 import PageError from "@/components/PageError/Error";
 
 function Character() {
+  const router = useRouter();
+  const { name } = router.query;
   const [modalOpen, setModalOpen] = useState(false);
   const [data, setData] = useState(null);
   const [select, setSelect] = useState(null);
   const [search, setSearch] = useState("");
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
 
-  const router = useRouter();
-  const { name } = router.query;
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const Resposta = useCallback(() => {
     const url = `https://api.disneyapi.dev/character?&name=${
@@ -50,11 +64,11 @@ function Character() {
 
   const handleSearch = () => {
     if (search.trim() !== "") {
-      router.replace(`/character?name=${search}`);
+      router.push(`/character?name=${search}`);
       Resposta();
     }
   };
-  console.log(data?.data, "1111");
+
   return (
     <div className={styles.container}>
       <p>{data?.data?.name}</p>
@@ -72,12 +86,12 @@ function Character() {
           />
         </div>
       </div>
-      {data?.data.lenght > 0 ? (
+      {data?.data.length > 0 ? (
         <div className={styles.card}>
           {Array.isArray(data?.data) &&
-            data?.data?.map((item) => {
+            data?.data?.map((item, index) => {
               return (
-                <span onClick={() => openModal(item)} key={item.id}>
+                <span onClick={() => openModal(item)} key={index}>
                   <Card
                     nome={item.name || "Sem dados"}
                     img={item.imageUrl || Error}
@@ -92,14 +106,24 @@ function Character() {
         </div>
       )}
       {modalOpen && (
-        <Modal
-          name={select.name}
-          onClose={closeModal}
-          img={select.imageUrl || Error}
-          film={select.films.slice(0, 3)}
-          game={select.videoGames.slice(0, 3)}
-          link={select.sourceUrl}
-        />
+        <div className={styles.modal}>
+          <Modal
+            name={select.name}
+            onClose={closeModal}
+            img={select.imageUrl || Error}
+            film={
+              windowWidth < 475
+                ? select.films.slice(0, 1)
+                : select.films.slice(0, 3)
+            }
+            game={
+              windowWidth < 475
+                ? select.videoGames.slice(0, 1)
+                : select.videoGames.slice(0, 3)
+            }
+            link={select.sourceUrl}
+          />
+        </div>
       )}
     </div>
   );
