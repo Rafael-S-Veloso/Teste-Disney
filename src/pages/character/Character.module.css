@@ -7,13 +7,6 @@
     background-color: #000b38;
 }
 
-@media screen and (max-width: 768px) {
-    .container {
-        height: 100%;
-    }
-}
-
-
 .box {
     display: flex;
     justify-content: space-between;

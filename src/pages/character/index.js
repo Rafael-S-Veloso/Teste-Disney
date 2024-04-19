@@ -51,7 +51,6 @@ function Character() {
   const handleSearch = () => {
     if (search.trim() !== "") {
       router.push(`/character?name=${search}`);
-      Resposta();
     }
   };
 
